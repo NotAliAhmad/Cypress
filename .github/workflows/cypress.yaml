@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [1, 2] # Run tests in 2 parallel containers
+        containers: [1] # Run tests in 2 parallel containers
 
     steps:
       - name: Checkout
@@ -32,7 +32,7 @@ jobs:
         run: npm install
 
       - name: Run Cypress Tests
-        run: npm run cypress:e2e
+        run: npm run cypress:e2e:report
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }} # Recording key for Cypress Cloud
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # For authentication, if required
