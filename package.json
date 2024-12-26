@@ -5,7 +5,7 @@
   "scripts": {
     "cypress:runAll": "npx cypress run --headed",
     "cypress:e2e": "npx cypress run --spec cypress/integration/examples/e2e_test/e2e_test.js --headed --browser chrome",
-    "cypress:e2e:report":"npx cypress run --spec cypress/integration/examples/e2e_test/e2e_test.js --headed --browser chrome --record --key 36558adf-1d6a-4e8d-8557-361e230827e5"
+    "cypress:e2e:report":"npx cypress run --spec cypress/integration/examples/e2e_test/e2e_test.js --headed --browser chrome --record --key $CYPRESS_RECORD_KEY"
   },
   "author": "",
   "license": "ISC",
