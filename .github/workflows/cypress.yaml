@@ -6,6 +6,7 @@ on:
   pull_request: # Optionally run on pull requests
     branches:
       - main
+  workflow_dispatch:  # Allows manual triggering from the GitHub UI
 
 jobs:
   cypress-run:
