@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-26T23:37:24.715Z",
+    "end": "2024-12-26T23:37:40.201Z",
+    "duration": 15486,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "198d8b0b-e4f0-4ee4-bf58-03580fe2c824",
+      "title": "",
+      "fullFile": "cypress/integration/examples/e2e_test/e2e_test.js",
+      "file": "cypress/integration/examples/e2e_test/e2e_test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2f38f3ae-2e7c-4ba7-a6d7-1114d0e336d0",
+          "title": "End to End ecommerce test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "submit an order",
+              "fullTitle": "End to End ecommerce test submit an order",
+              "timedOut": null,
+              "duration": 13092,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/integration/examples/e2e_test/e2e_test.js\"\n}",
+              "code": "// navigating to a site\n// using cypress.env to get the env vars from the config file\nmyvars.loginpage.goTo(Cypress.env('baseUrl') + '/loginpagePractise/');\n// Logging in, calling login method\nmyvars.loginpage.login(myvars.data.username, myvars.data.password);\n// Added a custom command to login using 'Cypress.Commands.Add()'\n//cy.login(myvars.data.username,myvars.data.password)\n// Pauses the script at the location of the pause - this is good for debugging purposes\n// cy.pause()\n// Home Page - Shop\n// add products to cart\nmyvars.homepage.pageValidation();\nmyvars.homepage.verifyCardLimit();\nvar nokiaProduct = myvars.data.nokiaProductName;\nmyvars.homepage.selectProduct2(nokiaProduct);\nvar berryProduct = myvars.data.berryProductName;\n// Alternatively the filter method can be used to get a specific element back and on that element you can do whatever else you like\n// Parameterizing the product name\nmyvars.homepage.selectProduct(berryProduct);\n// click on checkout \nmyvars.homepage.goToCart();\n// Cart Page\n// checking each price, getting the sum then asserting the total\nmyvars.cartpage.getIndivdualSum().then(function (totalSummed) {\n  expect(totalSummed).to.be.lessThan(200000);\n  // asserting the total \n  myvars.cartpage.getTotalSum().then(function (total) {\n    expect(total).to.be.lessThan(200000);\n    // assert the results of the 2 totals \n    expect(total).to.be.equal(totalSummed);\n  });\n});\n// Click on second checkout\ncy.get('.btn-success').click();\n// Confirmation Page\n// Send the country, select it from a dynamic drop down and click on it \nmyvars.confirmationpage.getCountry('united');\n// Can also do this so this it applies to the entire test case level\n// cy.config('defaultCommandTimeout',10000) \n// Verify that the success text is shown\ncy.get('div.alert-success strong').should('have.text', 'Success!');",
+              "err": {},
+              "uuid": "35d9d606-5517-4ec9-ba1f-a7e03dcce346",
+              "parentUUID": "2f38f3ae-2e7c-4ba7-a6d7-1114d0e336d0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "35d9d606-5517-4ec9-ba1f-a7e03dcce346"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13092,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

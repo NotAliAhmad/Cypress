@@ -5,14 +5,25 @@
   "scripts": {
     "cypress:runAll": "npx cypress run --headed",
     "cypress:e2e": "npx cypress run --spec cypress/integration/examples/e2e_test/e2e_test.js --headed --browser chrome",
-    "cypress:e2e:report":"npx cypress run --spec cypress/integration/examples/e2e_test/e2e_test.js --headed --browser chrome --record --key $CYPRESS_RECORD_KEY"
+    "cypress:e2e:report": "npx cypress run --spec cypress/integration/examples/e2e_test/e2e_test.js --headed --browser chrome --record --key $CYPRESS_RECORD_KEY"
+  },
+  "cypress-cucumber-preprocessor": {
+    "json": {
+      "enabled": true,
+      "output": "cypress/cucumberReports/jsonResults.json"
+    }
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@cypress/browserify-preprocessor": "^3.0.2",
     "cypress": "^13.16.0",
     "cypress-iframe": "^1.0.1",
-    "cypress-mochawesome-reporter": "^3.8.2"
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "multiple-cucumber-html-reporter": "^3.8.0"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^21.0.3"
   }
 }

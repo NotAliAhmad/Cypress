@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-26T23:36:48.033Z",
+    "end": "2024-12-26T23:36:57.762Z",
+    "duration": 9729,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7273fd76-e6aa-4957-ab2d-f661e0fb7770",
+      "title": "",
+      "fullFile": "cypress/integration/examples/handling_multiples_elements_within_an_element_test.js",
+      "file": "cypress/integration/examples/handling_multiples_elements_within_an_element_test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9a93b5f0-19c8-47ab-8264-b70f6707a4d7",
+          "title": "Handling elements within an element",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Does not do much!",
+              "fullTitle": "Handling elements within an element Does not do much!",
+              "timedOut": null,
+              "duration": 6895,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/integration/examples/handling_multiples_elements_within_an_element_test.js\"\n}",
+              "code": "// navigating to a site\ncy.visit('https://rahulshettyacademy.com/seleniumPractise/#/');\n// Selecting an element and typing 'cu' in the search bar\ncy.get('.search-keyword').type('ca');\n// Stops the script for 2 sec\ncy.wait(2000);\n// Checking to see if the product is visible before making teh assertion\n//cy.get('.product:visible').should('have.length', 2)\n// Parent child chaining\n// Aliases can be used to reduce redundant code\ncy.get('.products').as('productLocator');\n// each goes through each elements and performs some task\ncy.get('.products').find('.product').each(function ($ele, index, $list) {\n  var ele_text = $ele.find('.product-name').text();\n  // Can also use includes method that matches text partically \n  if (ele_text.includes('Cashews')) {\n    // wrap this element so we can use cypress commands on it\n    cy.wrap($ele).find('.product-action').click();\n  }\n});\ncy.get('.cart-icon').click();\ncy.contains('PROCEED TO CHECKOUT').click();\ncy.contains('Place Order').click();",
+              "err": {},
+              "uuid": "f55010b2-c4a7-4a20-835a-06e1b51971dc",
+              "parentUUID": "9a93b5f0-19c8-47ab-8264-b70f6707a4d7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f55010b2-c4a7-4a20-835a-06e1b51971dc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6895,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

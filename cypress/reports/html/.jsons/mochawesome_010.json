@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-26T23:37:13.293Z",
+    "end": "2024-12-26T23:37:21.116Z",
+    "duration": 7823,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3a3edbdc-34ad-491b-bb3e-fe6552379778",
+      "title": "",
+      "fullFile": "cypress/integration/examples/handling_web_tables_test.js",
+      "file": "cypress/integration/examples/handling_web_tables_test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "59961659-1fd6-4083-8989-0f82aa5ac378",
+          "title": "Handing web tables",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Does not do much!",
+              "fullTitle": "Handing web tables Does not do much!",
+              "timedOut": null,
+              "duration": 5081,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/integration/examples/handling_web_tables_test.js\"\n}",
+              "code": "// navigating to a site\ncy.visit('https://rahulshettyacademy.com/AutomationPractice/#/');\n// each goes through each elements and performs some task\n// First we get the set of elements that are related to the course\ncy.get('tbody:nth-child(1)> tr > td:nth-child(2)').each(function ($ele, index, $list) {\n  // Can also use includes method that matches text partically \n  if ($ele.text().includes('Python')) {\n    // wrap this element so we can use cypress commands on it\n    // easier way of doing it :P\n    cy.log($ele.text());\n    cy.log($ele.next().text());\n    // we save the index to be later used by the eq function so we can get the price associated with it\n    // The next method is used to get the next sibling so you would get the 7th element of 'tbody:nth-child(1)> tr > td:nth-child(3)'\n    // You cannot use text() to get the text of the price therefore the promise needs to be resolved using the then() \n    // and putting everything into price\n    cy.get('tbody:nth-child(1)> tr > td:nth-child(2)').next().eq(index).then(function (price) {\n      expect(price.text()).to.equal('25');\n    });\n  }\n});",
+              "err": {},
+              "uuid": "dab4a963-34a5-49fd-9d17-c865721339d5",
+              "parentUUID": "59961659-1fd6-4083-8989-0f82aa5ac378",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "dab4a963-34a5-49fd-9d17-c865721339d5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5081,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

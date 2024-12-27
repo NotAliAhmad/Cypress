@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-26T23:36:02.826Z",
+    "end": "2024-12-26T23:36:17.495Z",
+    "duration": 14669,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ff4f3e94-b598-4b4a-91a5-b0e92ae4cc97",
+      "title": "",
+      "fullFile": "cypress/integration/examples/handling_dropdowns_checkboxes_radiobuttons_test.js",
+      "file": "cypress/integration/examples/handling_dropdowns_checkboxes_radiobuttons_test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6247a5cd-e6ea-4d5c-aa83-372aaf8aadcc",
+          "title": "Handling checkboxes, dropdowns and radio buttons",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Does not do much!",
+              "fullTitle": "Handling checkboxes, dropdowns and radio buttons Does not do much!",
+              "timedOut": null,
+              "duration": 11824,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/integration/examples/handling_dropdowns_checkboxes_radiobuttons_test.js\"\n}",
+              "code": "// navigating to a site\ncy.visit('https://rahulshettyacademy.com/AutomationPractice/#/');\n// --- Dealing with checkbox ---\ncy.get('#checkBoxOption1').check().should('be.checked');\ncy.wait(1000);\n// You can use and() instead of multiple should methods\ncy.get('#checkBoxOption1').uncheck().should('not.be.checked').and('have.value', 'option1');\n// Getting the text of the checkbox\ncy.get('[value=\"option1\"]').should('have.text', 'Option1');\n// These checks are based off of the values provided. note the values are different than the text\ncy.get('input[type=\"checkbox\"]').check(['option3', 'option2']);\n// --- Dealing with static dropdown ---\ncy.get('select').select(1).should('have.value', 'option1');\n// --- Dealing with dynamic dropdown ---\ncy.get('#autocomplete').type('ind');\n// each goes through all the elements of the drop down and check to see if the value I want is selectable\ncy.get('.ui-menu-item-wrapper').each(function ($ele, index, $list) {\n  var ele_text = $ele.text();\n  cy.wait(1000);\n  cy.log(ele_text);\n  // Can also use includes method that matches text partically \n  if ($ele.text().includes('Indonesia')) {\n    // wrap this element so we can use cypress commands on it\n    cy.wrap($ele).click();\n  }\n});\n// Very That selected item is as intended\ncy.get('#autocomplete').should('have.value', 'Indonesia');\n// --- Dealing with visible/invisible objects ---\ncy.get('#displayed-text').should('be.visible');\n// Make the text box disappear and verify that it is gone\ncy.get('#hide-textbox').click();\ncy.get('#displayed-text').should('not.be.visible');\n// Make the text box reappear and verify that it is back\ncy.get('#show-textbox').click();\ncy.get('#displayed-text').should('be.visible');\n// --- Dealing with radio buttons ---\n// Dealing with radio buttons is similar to checkboxes\ncy.get('input[value=\"radio1\"]').check().should('be.checked');\ncy.wait(1000);\ncy.get('input[value=\"radio2\"]').check().should('be.checked');\ncy.get('[value=\"radio1\"]').should('not.be.checked');\n// Getting the text of the radio button\n// cy.get('[value=\"radio1\"]').should('have.text','radio1')\n// These checks are based off of the values provided. note the values are different than the text\ncy.get('input[name=\"radioButton\"]').check(['radio3', 'radio2']);",
+              "err": {},
+              "uuid": "10a4b35d-76a2-4a2b-ac6c-7a7a7ef5d4d5",
+              "parentUUID": "6247a5cd-e6ea-4d5c-aa83-372aaf8aadcc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "10a4b35d-76a2-4a2b-ac6c-7a7a7ef5d4d5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 11824,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

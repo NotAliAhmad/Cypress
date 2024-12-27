@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-26T23:35:41.930Z",
+    "end": "2024-12-26T23:35:58.694Z",
+    "duration": 16764,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b9de936c-f47e-4538-b834-79048938dd89",
+      "title": "",
+      "fullFile": "cypress/integration/examples/handling_child_tabs_and_windows_test.js",
+      "file": "cypress/integration/examples/handling_child_tabs_and_windows_test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "aa765ff4-4d7e-446d-b4e4-2713632b6b00",
+          "title": "Handing new tabs and windows",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Does not do much!",
+              "fullTitle": "Handing new tabs and windows Does not do much!",
+              "timedOut": null,
+              "duration": 13784,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress/integration/examples/handling_child_tabs_and_windows_test.js\"\n}",
+              "code": "// navigating to a site\ncy.visit('https://rahulshettyacademy.com/AutomationPractice/#/');\n// --- Dealing child tabs ---\n/* \ncypress deals with links that open up multiple tabs by dom manupilation\ntheres a special tag called target=\"_blank\" which is associated with every link that opens a link in a new tab\nby removing that attribute we can click on the element thus opening the link in the same tab\n cypress prevents testing in multiple tabs because...\nCypress prioritizes test isolation and simplicity, so it doesn’t allow managing multiple\nbrowser tabs or windows directly. By opening the URL in the same tab, you can test the\nfunctionality without compromising Cypress's limitations.\n*/\n// remove attr is a jquery function\n// cy.get('#opentab').invoke('removeAttr','target').click()\n// cy.wait(2000)\n// // Handle the new origin\n// // All the testing for the new origin needs to be handled in this block\n// cy.origin('https://www.qaclickacademy.com/', () => {\n//     cy.url().then((newUrl) => {\n//         cy.log(`The current URL on the new origin is: ${newUrl}`);\n//     });\n//     cy.get(\"#navbarSupportedContent a[href*='about']\").click();\n//     cy.get('div[class=\"section-title mt-50\"] h2').should('have.text','Welcome to QAClick Academy ').and('contain','QAClick Academy');\n// });\n// --- Dealing with child windows ---\n// because the promise(using cypress with jquery) is not resolved, we have to use the then method\n// Navigating to the new domain via getting the link from the href\ncy.get('#opentab').then(function (ele) {\n  // The prop function allows you to get the value of a specific attribute \n  var tab_ele = ele.prop('href');\n  cy.visit(tab_ele);\n  cy.origin(tab_ele, function () {\n    cy.get(\".sub-menu-bar a[href*='about']\").click();\n  });\n});",
+              "err": {},
+              "uuid": "f6abb6eb-94f7-4bb5-b1cd-a7c381dfee2c",
+              "parentUUID": "aa765ff4-4d7e-446d-b4e4-2713632b6b00",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f6abb6eb-94f7-4bb5-b1cd-a7c381dfee2c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13784,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/html/.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

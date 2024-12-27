@@ -18,6 +18,7 @@ describe('End to End ecommerce test', () => {
     } 
 
     // This method runs before all tests 
+    // This how mocha deals with things
     before(()=>{
         // Loading fixture file example
         cy.fixture('e2e_ecommerce').then((example_data)=>{
@@ -25,7 +26,6 @@ describe('End to End ecommerce test', () => {
             myvars.data=example_data
         })
     })
-
 
     it('submit an order', () => {
 
@@ -42,10 +42,10 @@ describe('End to End ecommerce test', () => {
         // cy.pause()
 
         // Home Page - Shop
-        const homepage = new HomePage()
+
             // add products to cart
-            homepage.pageValidation()
-            homepage.verifyCardLimit()
+            myvars.homepage.pageValidation()
+            myvars.homepage.verifyCardLimit()
 
             const nokiaProduct = myvars.data.nokiaProductName
             myvars.homepage.selectProduct2(nokiaProduct)
@@ -53,7 +53,7 @@ describe('End to End ecommerce test', () => {
             const berryProduct = myvars.data.berryProductName
             // Alternatively the filter method can be used to get a specific element back and on that element you can do whatever else you like
             // Parameterizing the product name
-            homepage.selectProduct(berryProduct)
+            myvars.homepage.selectProduct(berryProduct)
 
             // click on checkout 
             myvars.homepage.goToCart()
@@ -69,13 +69,8 @@ describe('End to End ecommerce test', () => {
 
             // assert the results of the 2 totals 
             expect(total).to.be.equal(totalSummed)
+                })
             })
-
-
-            })
-
-
-
             
             // Click on second checkout
             cy.get('.btn-success').click()

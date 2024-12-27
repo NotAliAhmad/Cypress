@@ -1,0 +1,192 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "end-to-end-ecommerce-validation;ecommerce-product-delivery",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Ecommerce product delivery",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I am on the login page",
+            "match": {
+              "location": "cypress/support/step_definitions/e2e_defination.js:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 559000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I login to the application",
+            "match": {
+              "location": "cypress/support/step_definitions/e2e_defination.js:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1967000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "I add items to the cart and checkout",
+            "match": {
+              "location": "cypress/support/step_definitions/e2e_defination.js:36"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5263000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "validate the total price",
+            "match": {
+              "location": "cypress/support/step_definitions/e2e_defination.js:53"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 205000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "select the country, submit and verify the confirmation message",
+            "match": {
+              "location": "cypress/support/step_definitions/e2e_defination.js:71"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5529000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@smoke",
+            "line": 2
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "end-to-end-ecommerce-validation;ecommerce-product-delivery,-data-driven",
+        "keyword": "Scenario Outline",
+        "line": 11,
+        "name": "Ecommerce product delivery, data driven",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I am on the login page",
+            "match": {
+              "location": "cypress/support/step_definitions/e2e_defination.js:23"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "username",
+                      "password"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "bob",
+                      "bob"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I login to the application, datadriven",
+            "match": {
+              "location": "cypress/support/step_definitions/e2e_defination.js:31"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I add items to the cart and checkout",
+            "match": {
+              "location": "cypress/support/step_definitions/e2e_defination.js:36"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "validate the total price",
+            "match": {
+              "location": "cypress/support/step_definitions/e2e_defination.js:53"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "select the country, submit and verify the confirmation message",
+            "match": {
+              "location": "cypress/support/step_definitions/e2e_defination.js:71"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@datadriven",
+            "line": 10
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "end-to-end-ecommerce-validation",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "End to End Ecommerce validation",
+    "tags": [],
+    "uri": "cypress/integration/examples/BDD/Features/e2e_test.feature"
+  }
+]
