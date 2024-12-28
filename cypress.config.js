@@ -31,7 +31,10 @@ module.exports = defineConfig({
     setupNodeEvents,
     // This allows for both feature and js files to be visible for execution as well we 
     // add ,'cypress/integration/**/*test*.js' to account for js tests too
-    specPattern: ['cypress/integration/**/*test*.feature']
+    // or
+    // add ,'cypress/integration/**/*test*.fea' to account for js tests too
+
+    specPattern: ['cypress/integration/**/*test*.js']
     
   },
   env: {

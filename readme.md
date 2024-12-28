@@ -23,11 +23,11 @@ How to implement cucumber into your cypress framework?
 - config file update can be found here: https://github.com/badeball/cypress-cucumber-preprocessor/blob/master/examples/browserify-cjs/cypress.config.js
 - Given when and then updates can be found in the introduction of: https://github.com/badeball/cypress-cucumber-preprocessor
 
-How to run tagged tests using cucumber?
+How to run tagged tests using cucumber? Note: This only works for cucumber tests
 - Firstly make sure your tests are tagged with the tag you want then run this command:
 - npx cypress run --env tags="@smoke" --headed
 
-How to get results in json and convert it into html?
+How to get results in json and convert it into html? Note: This only works for cucumber files
 - Add this block of code to your package.json
   "cypress-cucumber-preprocessor":{
     "json":{
