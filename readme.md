@@ -43,3 +43,16 @@ to your root dir
 
 How to deal with csv?
 - You can use neat csv, you can install this using: npm install neat-csv
+- Read the csv with cy.readFile() to get it back as a text format and give the full path of
+the file using Cypress.config("fileServerFolder") then you can do 'const csv = await neatCsv(text)' to get the property values from the csv which will be available in the form of a
+javascript object
+
+How to work with SQL server via Azure?
+- First install cypress-sql-server since cypress doesnt support it with: 
+npm install --save-dev cypress-sql-server 
+- Set the plugin in the config file in setupNodeEvents() function:
+  tasks = sqlServer.loadDBPlugin(config.db);
+  on('task', tasks);
+- Set the config.db with the necessary info in the config file
+- Import the custom sql command in e2e.js and use that custom command to send your query.
+Like so, 'cy.sqlServer(`SELECT 'test').should('eq', 'test');'

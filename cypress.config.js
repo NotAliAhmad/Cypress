@@ -4,6 +4,8 @@ const { addCucumberPreprocessorPlugin,
 } = require("@badeball/cypress-cucumber-preprocessor");
 const { preprendTransformerToOptions,
 } = require("@badeball/cypress-cucumber-preprocessor/browserify");
+const sqlServer = require('cypress-sql-server');
+
 
 async function setupNodeEvents(on, config) {
   // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
@@ -13,6 +15,22 @@ async function setupNodeEvents(on, config) {
     "file:preprocessor",
     browserify(preprendTransformerToOptions(config, browserify.defaultOptions)),
   );
+
+
+  // Configuration for the SQL Server
+  config.db = {
+      userName: "myAzure",
+      password: "myPassword",
+      server: "bobtheserverdemo2.database.windows.net",
+      options: {
+          database: "bobtheserver",
+          encrypt: true,
+          rowCollectionOnRequestCompletion : true
+      }
+  },
+
+  tasks = sqlServer.loadDBPlugin(config.db);
+  on('task', tasks);
 
   // Make sure to return the config object as it might have been modified by the plugin.
   return config;
