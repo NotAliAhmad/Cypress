@@ -40,3 +40,6 @@ to your root dir
 - Get multiple-cucumber-html-reporter from: npm install multiple-cucumber-html-reporter --save-dev
 - Add the cucumber-html-report.js file and data from https://www.npmjs.com/package/multiple-cucumber-html-reporter to your root dir and update its contents
 - Lastly execute the js file using the command 'node cucumber-html-report.js'
+
+How to deal with csv?
+- You can use neat csv, you can install this using: npm install neat-csv

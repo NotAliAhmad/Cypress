@@ -24,6 +24,7 @@
     "multiple-cucumber-html-reporter": "^3.8.0"
   },
   "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^21.0.3"
+    "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
+    "neat-csv": "^5.1.0"
   }
 }
