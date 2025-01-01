@@ -47,6 +47,10 @@ How to deal with csv?
 the file using Cypress.config("fileServerFolder") then you can do 'const csv = await neatCsv(text)' to get the property values from the csv which will be available in the form of a
 javascript object
 
+How to deal with excel files?
+- You can use npm install convert-excel-to-json for an external plug that converts the excel
+file to a javascript object
+
 How to work with SQL server via Azure?
 - First install cypress-sql-server since cypress doesnt support it with: 
 npm install --save-dev cypress-sql-server 
@@ -56,3 +60,9 @@ npm install --save-dev cypress-sql-server
 - Set the config.db with the necessary info in the config file
 - Import the custom sql command in e2e.js and use that custom command to send your query.
 Like so, 'cy.sqlServer(`SELECT 'test').should('eq', 'test');'
+
+What is task and how is it used?
+- Task halts the cypress execution to deal with things in the backend such as databases
+and accessing files using fs. It works by accessing the task code expressed in the
+config.js and stops cypress to execute that and switches to the the node engine runs it
+and switches back. The code for the task in executed in the config file

@@ -5,7 +5,8 @@ const { addCucumberPreprocessorPlugin,
 const { preprendTransformerToOptions,
 } = require("@badeball/cypress-cucumber-preprocessor/browserify");
 const sqlServer = require('cypress-sql-server');
-
+const excelToJson = require('convert-excel-to-json');
+const fs = require('fs');
 
 async function setupNodeEvents(on, config) {
   // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
@@ -29,8 +30,19 @@ async function setupNodeEvents(on, config) {
       }
   },
 
+  // Task for reading config data to the sqlserver
   tasks = sqlServer.loadDBPlugin(config.db);
   on('task', tasks);
+
+  // Task for reading data from files and converting it to js - readExcelFile is the task name
+  readExcelFile = (filepath)=>{
+    const data = fs.readFileSync(filepath);
+    const result = excelToJson({
+        source: data,
+    });
+    return result;
+  },
+  on('task', { readExcelFile, });
 
   // Make sure to return the config object as it might have been modified by the plugin.
   return config;
