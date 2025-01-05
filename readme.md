@@ -66,3 +66,13 @@ What is task and how is it used?
 and accessing files using fs. It works by accessing the task code expressed in the
 config.js and stops cypress to execute that and switches to the the node engine runs it
 and switches back. The code for the task in executed in the config file
+
+How to read and write to xlsx and json?
+- Use the package excelJS, install it with: npm install exceljs
+
+what is the point of async and await in js?
+- They are used because of the nature of js and cypress executing code all at once and
+in order to explictly wait for something both async and await must be used
+
+How to upload a file?
+- Simplily use the selectFile() method and give the path

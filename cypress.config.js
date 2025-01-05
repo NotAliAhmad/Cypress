@@ -7,6 +7,8 @@ const { preprendTransformerToOptions,
 const sqlServer = require('cypress-sql-server');
 const excelToJson = require('convert-excel-to-json');
 const fs = require('fs');
+const excelDemo = require('./cypress/integration/examples/util/excelDemo.js');
+
 
 async function setupNodeEvents(on, config) {
   // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
@@ -43,6 +45,17 @@ async function setupNodeEvents(on, config) {
     return result;
   },
   on('task', { readExcelFile, });
+
+  const demo = new excelDemo();
+  on('task', {
+    writeExcel({ filepath }) {
+      return demo.writeExcel(filepath) // Call the method
+        .then(() => 'Excel updated successfully.')
+        .catch((error) => {
+          throw new Error(`Failed to update Excel: ${error.message}`);
+        });
+    },
+  });
 
   // Make sure to return the config object as it might have been modified by the plugin.
   return config;
